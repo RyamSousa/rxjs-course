@@ -1,9 +1,10 @@
-import { Component, OnDestroy, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
 import { FormControl } from "@angular/forms";
-import { Acoes } from "./models/acoes";
 import { AcoesService } from "./acoes.service";
-import { Subscription } from "rxjs";
+import { debounceTime, distinctUntilChanged, filter, switchMap } from "rxjs/operators";
+import { merge } from "rxjs";
 
+const ESPERA_GIGITACAO = 300;
 @Component({
 	selector: "app-acoes",
 	templateUrl: "./acoes.component.html",
@@ -11,7 +12,15 @@ import { Subscription } from "rxjs";
 })
 export class AcoesComponent {
 	acoesInput = new FormControl();
-	acoes$ = this.acoesService.getAcoes();
+	todasAcoes$ = this.acoesService.getAcoes();
+	filtroPeloInput$ = this.acoesInput.valueChanges.pipe(
+		debounceTime(ESPERA_GIGITACAO),
+		filter((valor) => valor.length >= 3 || !valor.length),
+		distinctUntilChanged(),
+		switchMap((valor) => this.acoesService.getAcoes(valor))
+	);
+
+	acoes$ = merge(this.todasAcoes$, this.filtroPeloInput$);
 
 	constructor(private acoesService: AcoesService) {}
 }
