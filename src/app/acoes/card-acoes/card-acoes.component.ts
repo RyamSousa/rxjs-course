@@ -1,15 +1,15 @@
-import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, Input, OnInit, ViewEncapsulation } from "@angular/core";
 
 @Component({
-  selector: 'app-card-acoes',
-  templateUrl: './card-acoes.component.html',
-  styleUrls: ['./card-acoes.component.css'],
-  encapsulation: ViewEncapsulation.None,
+	selector: "app-card-acoes",
+	templateUrl: "./card-acoes.component.html",
+	styleUrls: ["./card-acoes.component.css"],
+	encapsulation: ViewEncapsulation.None,
 })
 export class CardAcoesComponent implements OnInit {
-  @Input() acao: any;
+	@Input() acao: any;
 
-  constructor() {}
+	constructor() {}
 
-  ngOnInit(): void {}
+	ngOnInit(): void {}
 }

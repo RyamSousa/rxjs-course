@@ -1,5 +1,5 @@
 export interface UserLogin {
-  userName: string;
-  password: string;
-  remindUser: boolean;
+	userName: string;
+	password: string;
+	remindUser: boolean;
 }

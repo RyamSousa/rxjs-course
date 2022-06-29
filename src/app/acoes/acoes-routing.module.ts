@@ -1,16 +1,16 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { AcoesComponent } from './acoes.component';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { AcoesComponent } from "./acoes.component";
 
 export const routes: Routes = [
-  {
-    path: '',
-    component: AcoesComponent,
-  },
+	{
+		path: "",
+		component: AcoesComponent,
+	},
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
+	imports: [RouterModule.forChild(routes)],
+	exports: [RouterModule],
 })
 export class AcoesRoutingModule {}

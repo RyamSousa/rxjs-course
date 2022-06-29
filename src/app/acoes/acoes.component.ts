@@ -1,13 +1,13 @@
-import { Component } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { Component } from "@angular/core";
+import { FormControl } from "@angular/forms";
 
 @Component({
-  selector: 'app-acoes',
-  templateUrl: './acoes.component.html',
-  styleUrls: ['./acoes.component.css'],
+	selector: "app-acoes",
+	templateUrl: "./acoes.component.html",
+	styleUrls: ["./acoes.component.css"],
 })
 export class AcoesComponent {
-  acoesInput = new FormControl();
+	acoesInput = new FormControl();
 
-  constructor() {}
+	constructor() {}
 }
